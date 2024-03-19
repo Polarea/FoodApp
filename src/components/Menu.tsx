@@ -1,0 +1,87 @@
+import { useEffect, useState } from "react";
+import "../App.css";
+
+const BASE_URL = "https://iths-2024-recept-grupp7-86oop6.reky.se/recipes";
+
+interface Menu {
+  imageUrl: string;
+  title: string;
+  description: string;
+  categories: string[];
+}
+
+export default function Menu() {
+  const [MenuItems, setMenuItems] = useState<Menu[]>([]);
+  const [menuItem, setMenuItem] = useState<Menu>();
+
+  const fetchMenu = async () => {
+    const response = await fetch(`${BASE_URL}`);
+    const menuItems = (await response.json()) as Menu[];
+    setMenuItems(menuItems);
+  };
+  useEffect(() => {
+    fetchMenu();
+  }, []);
+
+  return (
+    <div className="container" id="box">
+      <div className="row row-col-3">
+        <div className="col" id="menu">
+          <center>
+            <h1 id="heading">Menu</h1>
+            <ul id="list">
+              {MenuItems.map((menuItem, index) => {
+                return (
+                  <li key={index++}>
+                    <img
+                      key={menuItem.title + index}
+                      src={menuItem.imageUrl}
+                      alt={menuItem.title}
+                      id="thumbnail"
+                      onClick={() => setMenuItem(menuItem)}
+                    />
+                    <div key={index} id="thumbnailText">
+                      {menuItem.title}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </center>
+        </div>
+        <div className="col" id="menuItem">
+          <center>
+            <div id="taptini">Tap&Tini</div>
+          </center>
+          <img
+            id="menuItemImage"
+            key={menuItem?.imageUrl}
+            src={menuItem?.imageUrl}
+            alt={menuItem?.title}
+          />
+          <center>
+            <div id="descriptionTitle" key={menuItem?.title}>
+              {menuItem?.title}
+            </div>
+            <div id="itemDescription" key={menuItem?.description}>
+              {menuItem?.description}
+            </div>
+            <div id="categories">
+              Categories:
+              <br />
+              {menuItem?.categories.map((category, index) => {
+                return (
+                  <div key={index}>
+                    {category}
+                    <br />
+                  </div>
+                );
+              })}
+            </div>
+          </center>
+        </div>
+        <div className="col"></div>
+      </div>
+    </div>
+  );
+}
