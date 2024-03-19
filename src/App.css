@@ -5,8 +5,10 @@
     font-family:'Lato';
     text-shadow: 1px 1px 15px black;
 }
-#heading{
-    margin: 10%;
+#headingMenu{
+    margin-left: 10%;
+    margin-top: 15%;
+    margin-bottom: 5%;
 }
 #menu{
     max-width: 25vw;
@@ -17,16 +19,17 @@
     height: 100vh;
 }
 #menuItemImage{
+    display: block;
     width: 25vw;
     border-radius: 25%;
-    margin-left: 17%;
-    margin-bottom: 10%;
-    opacity: 95%;
-    box-shadow: 1px 1px 10px rgb(17, 16, 16);
-}
-#menuItemImage:hover{
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-bottom: 5%;
     opacity: 90%;
     box-shadow: 10px 10px 10px rgb(17, 16, 16);
+}
+#menuItemImage:hover{
+    opacity: 95%;
 }
 #thumbnail{
     max-width: 20%;
@@ -46,25 +49,62 @@
     list-style-type: none;
 }
 #descriptionTitle{
+    text-align: center;
+    padding-left: 10vw;
+    float: left;
+    width: 40vw;
     text-shadow: 1px 1px 8px rgb(74, 72, 72);;
-    margin-bottom: 2%;
  font-weight: bold;
  font-size: 2vw;
 }
 #itemDescription{
+    text-align: center;
+    float: left;
     font-size: large;
-    width: 50%;
-    padding-left: 15%;
-    display:inline-flex;
+    padding-left: 10vw;
+    width: 40vw;
 }
 
 #categories{
-    float:inline-end;
-    width: 15%;
+    display:inline-flex;
+    width: 6vw;
+    margin-left: 2vw;
     background-color: blanchedalmond;
     border-radius: 25%;
+    text-align: center;
     padding: 2%;
+    box-shadow: 1px 1px 10px #0b0b0b;
 }
 #taptini{
     font-size: 6vw;
+}
+
+#extras{
+    width: 20vw;
+    max-width: 25vw;
+    max-height: 100vh;
+}
+
+#headingExtras{
+    margin: 5vw 5vw 3vw;
+}
+#extrasBox{
+    padding: 1vw;
+    margin-left: 5vw;
+}
+
+#extrasNames{
+width: 5vw;
+height: 6vh;
+border-radius: 25%;
+    background-color: antiquewhite;
+    text-align: center;
+    box-shadow: 1px 1px 10px #0b0b0b;
+}
+
+#inputExtras{
+    max-width: 2vw;
+    margin-left: 5vw;
+    border-style: none;
+    font-weight: bold;
 }

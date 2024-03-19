@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../App.css";
+import TapasExtras from "./TapasExtras";
 
 const BASE_URL = "https://iths-2024-recept-grupp7-86oop6.reky.se/recipes";
 
@@ -18,6 +19,7 @@ export default function Menu() {
     const response = await fetch(`${BASE_URL}`);
     const menuItems = (await response.json()) as Menu[];
     setMenuItems(menuItems);
+    setMenuItem(menuItems[0]);
   };
   useEffect(() => {
     fetchMenu();
@@ -28,7 +30,7 @@ export default function Menu() {
       <div className="row row-col-3">
         <div className="col" id="menu">
           <center>
-            <h1 id="heading">Menu</h1>
+            <h1 id="headingMenu">Menu</h1>
             <ul id="list">
               {MenuItems.map((menuItem, index) => {
                 return (
@@ -59,28 +61,28 @@ export default function Menu() {
             src={menuItem?.imageUrl}
             alt={menuItem?.title}
           />
-          <center>
-            <div id="descriptionTitle" key={menuItem?.title}>
-              {menuItem?.title}
-            </div>
-            <div id="itemDescription" key={menuItem?.description}>
-              {menuItem?.description}
-            </div>
-            <div id="categories">
-              Categories:
-              <br />
-              {menuItem?.categories.map((category, index) => {
-                return (
-                  <div key={index}>
-                    {category}
-                    <br />
-                  </div>
-                );
-              })}
-            </div>
-          </center>
+          <div id="descriptionTitle" key={menuItem?.title}>
+            {menuItem?.title}
+          </div>
+          <div id="itemDescription" key={menuItem?.description}>
+            {menuItem?.description}
+          </div>
+          <div id="categories">
+            Categories:
+            <br />
+            {menuItem?.categories.map((category, index) => {
+              return (
+                <>
+                  {category}
+                  <br />
+                </>
+              );
+            })}
+          </div>
         </div>
-        <div className="col"></div>
+        <div className="col" id="extras">
+          <TapasExtras />
+        </div>
       </div>
     </div>
   );
