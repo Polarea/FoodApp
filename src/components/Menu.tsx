@@ -40,7 +40,7 @@ export default function Menu() {
                       src={menuItem.imageUrl}
                       alt={menuItem.title}
                       id="thumbnail"
-                      onClick={() => setMenuItem(menuItem)}
+                      onMouseOver={() => setMenuItem(menuItem)}
                     />
                     <div key={index} id="thumbnailText">
                       {menuItem.title}
@@ -70,7 +70,7 @@ export default function Menu() {
           <div id="categories">
             Categories:
             <br />
-            {menuItem?.categories.map((category, index) => {
+            {menuItem?.categories.map((category) => {
               return (
                 <>
                   {category}

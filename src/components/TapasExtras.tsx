@@ -1,28 +1,21 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 interface Extras {
   name: string;
   quantity: number;
-  onChange: (name: string, quantity: number) => void;
 }
-const extrasList: string[] = [
-  "Aioli",
-  "Patatas Bravas",
-  "Gazpacho",
-  "Albondigas",
-  "Marinerade grönsaker",
-  "Skaldjur",
-];
+
 export default function TapasExtras() {
-  let xtras: Extras;
-  const [extras, setExtras] = useState<Extras>({
-    name: "",
-    quantity: 0,
-    onChange: (name, quantity) => {
-      xtras = { ...xtras, name, quantity };
-      setExtras(xtras);
-    },
-  });
+  const extrasList: Extras[] = [
+    { name: "Aioli", quantity: 0 },
+    { name: "Patatas Bravas", quantity: 0 },
+    { name: "Gazpacho", quantity: 0 },
+    { name: "Albondigas", quantity: 0 },
+    { name: "Marinerade grönsaker", quantity: 0 },
+    { name: "Skaldjur", quantity: 0 },
+  ];
+
+  const [xtras, setXtras] = useState<[string, number]>();
 
   return (
     <div id="extras">
@@ -34,15 +27,18 @@ export default function TapasExtras() {
               <table id="extrasTable">
                 <tbody>
                   <tr>
-                    <td id="extrasNames">{listItem}:</td>
+                    <td id="extrasNames" key={listItem.name}>
+                      {listItem.name}:
+                    </td>
                     <td>
                       <input
                         id="inputExtras"
                         type="number"
-                        value={extras.quantity}
-                        onChange={(e) =>
-                          extras.onChange(listItem, parseInt(e.target.value))
-                        }
+                        placeholder="0"
+                        min={0}
+                        onChange={(e) => {
+                          setXtras([listItem.name, parseInt(e.target.value)]);
+                        }}
                       />
                     </td>
                   </tr>
