@@ -4,9 +4,10 @@ import MyButton from "./components/MyButton";
 import Recipe from "./components/Recipe";
 import Menu from "./components/Menu";
 import "./App.css";
+import Cocktail from "./components/Cocktail";
 
 function App() {
-  return <Menu />;
+  return <Cocktail />;
 }
 
 export default App;

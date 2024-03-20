@@ -10,7 +10,7 @@
     margin-top: 15%;
     margin-bottom: 5%;
 }
-#menu{
+#drinkColumn, #menu{
     max-width: 25vw;
     max-height: 100vh;
 }
@@ -111,4 +111,32 @@ border-radius: 25%;
     background-color: antiquewhite;
     border-radius: 25%;
     box-shadow: 1px 1px 10px #0b0b0b;
+}
+#drinkButtons{
+    width: 25vw;
+    padding: 10%;
+}
+#buttonBackward{
+float: right;
+}
+#buttonForward, #buttonBackward{
+    background-color: blanchedalmond;
+    box-shadow: 1px 1px 10px #0b0b0b;
+    border-radius: 15%;
+}
+#drinkTitle{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    text-align: center;
+    max-width: 25vw;
+    text-shadow: 1px 1px 8px rgb(74, 72, 72);;
+    font-weight: bold;
+    font-size: 2vw;
+}
+#drinkImage{
+    display: block;
+    width: 25vw;
+    border-radius: 15%;
+    opacity: 90%;
+    box-shadow: 10px 10px 10px rgb(17, 16, 16);
 }
