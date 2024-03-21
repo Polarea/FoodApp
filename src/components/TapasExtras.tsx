@@ -18,34 +18,35 @@ export default function TapasExtras() {
   const [xtras, setXtras] = useState<[string, number]>();
 
   return (
-    <div id="extras">
+    <div id="extrasBox">
       <h1 id="headingExtras">Tillbehör</h1>
       {extrasList.map((listItem) => {
         return (
-          <>
-            <div id="extrasBox">
-              <table id="extrasTable">
-                <tbody>
-                  <tr>
-                    <td id="extrasNames" key={listItem.name}>
-                      {listItem.name}:
-                    </td>
-                    <td>
-                      <input
-                        id="inputExtras"
-                        type="number"
-                        placeholder="0"
-                        min={0}
-                        onChange={(e) => {
-                          setXtras([listItem.name, parseInt(e.target.value)]);
-                        }}
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </>
+          <table>
+            <tbody>
+              <tr>
+                <td id="extrasNames" key={listItem.name}>
+                  {listItem.name}:
+                </td>
+                <td>
+                  <input
+                    id="inputExtras"
+                    type="number"
+                    placeholder="0"
+                    min={0}
+                    onChange={(e) => {
+                      setXtras([listItem.name, parseInt(e.target.value)]);
+                    }}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <br />
+                </td>
+              </tr>
+            </tbody>
+          </table>
         );
       })}
     </div>

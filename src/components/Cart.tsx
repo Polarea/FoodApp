@@ -1,7 +1,3 @@
-import React from "react";
-import Menu from "./Menu";
-import TapasExtras from "./TapasExtras";
-
 interface Menu {
   imageUrl: string;
   title: string;
@@ -9,6 +5,15 @@ interface Menu {
   categories: string[];
 }
 
+interface Cocktail {
+  strDrink: string;
+  strDrinkThumb: string;
+  idDrink: string;
+}
+
+interface Cocktails {
+  drinks: Cocktail[];
+}
 interface Extras {
   name: string;
   quantity: number;

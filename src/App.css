@@ -1,30 +1,30 @@
 #box{
-    max-width: 100vw;
-    max-height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
     color: #3f4041;
     font-family:'Lato';
     text-shadow: 1px 1px 15px black;
 }
 #headingMenu{
     margin-left: 10%;
-    margin-top: 15%;
+    margin-top: 5%;
     margin-bottom: 5%;
 }
 #menu{
-    max-width: 25vw;
-    max-height: 100vh;
+    max-width: 25%;
+    max-height: 100%;
 }
 #menuItem{
-    max-width: 50vw;
-    height: 100vh;
+    max-width: 50%;
+    height: 100%;
 }
 #menuItemImage{
     display: block;
-    width: 25vw;
+    width: 50%;
     border-radius: 15%;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-left: 25%;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     opacity: 90%;
     box-shadow: 10px 10px 10px rgb(17, 16, 16);
 }
@@ -37,38 +37,38 @@
     box-shadow: inset;
     box-shadow: 1px 1px 10px #0b0b0b;
     opacity: 90%;
-    margin: 5%;
+    margin: 3%;
 }
 #thumbnail:hover{
     opacity: 50%;
 }
 #thumbnailText{
-    font-size: large;
+    font-size: 100%;
 }
 #list{
     list-style-type: none;
 }
 #descriptionTitle{
     text-align: center;
-    padding-left: 10vw;
+    padding-left: 10%;
     float: left;
-    width: 40vw;
+    width: 80%;
     text-shadow: 1px 1px 8px rgb(74, 72, 72);;
- font-weight: bold;
- font-size: 2vw;
+    font-weight: bold;
+    font-size: 150%;
 }
 #itemDescription{
     text-align: center;
     float: left;
-    font-size: large;
-    padding-left: 10vw;
-    width: 40vw;
+    font-size: 120%;
+    padding-left: 10%;
+    width: 80%;
 }
 
 #categories{
     display:inline-flex;
-    width: 6vw;
-    margin-left: 2vw;
+    min-width: 12%;
+    margin-left: 2%;
     background-color: blanchedalmond;
     border-radius: 25%;
     text-align: center;
@@ -76,43 +76,43 @@
     box-shadow: 1px 1px 10px #0b0b0b;
 }
 #taptini{
-    font-size: 6vw;
+    font-size: 500%;
 }
 
 #extras{
-    width: 20vw;
-    max-width: 25vw;
-    max-height: 100vh;
+    max-width: 25%;
+    max-height: 100%;
 }
 
 #headingExtras{
-    margin: 5vw 5vw 3vw;
+    margin-left: 30%;
+    margin: 8% 1%;
 }
 #extrasBox{
-    padding: 1vw;
-    margin-left: 5vw;
+    max-width: 100%;
+    max-height: 100%;
+    font-size: 100%;
 }
-
+table{
+    width: 100%;
+}
 #extrasNames{
-    width: 5vw;
-    height: 6vh;
+    width: 30%;
     border-radius: 25%;
     background-color: antiquewhite;
     text-align: center;
     box-shadow: 1px 1px 10px #0b0b0b;
 }
-
 #inputExtras{
+    margin-left:20%;
     text-align: center;
-    max-width: 2vw;
-    margin-left: 5vw;
+    max-width: 15%;
     border-style: none;
     font-weight: bold;
     background-color: antiquewhite;
     border-radius: 25%;
     box-shadow: 1px 1px 10px #0b0b0b;
 }
-
 #drinkColumn{
  width: 30vw;
 }
@@ -139,7 +139,7 @@
     width: 30vw;
     text-shadow: 1px 1px 8px rgb(74, 72, 72);;
     font-weight: bold;
-    font-size: 2vw;
+    font-size: 100%;
 }
 #drinkImage{
     display: block;
