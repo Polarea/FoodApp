@@ -5,9 +5,11 @@ interface Cocktail {
   strDrink: string;
   strDrinkThumb: string;
   idDrink: string;
+  quantity: number;
+  price: number;
 }
 
-interface Cocktails {
+export interface Cocktails {
   drinks: Cocktail[];
 }
 

@@ -4,11 +4,13 @@ import TapasExtras from "./TapasExtras";
 
 const BASE_URL = "https://iths-2024-recept-grupp7-86oop6.reky.se/recipes";
 
-interface Menu {
+export interface Menu {
   imageUrl: string;
   title: string;
   description: string;
   categories: string[];
+  price: number;
+  quantity: number;
 }
 
 export default function Menu() {
@@ -52,9 +54,7 @@ export default function Menu() {
           </center>
         </div>
         <div className="col" id="menuItem">
-          <center>
-            <div id="taptini">Tap&Tini</div>
-          </center>
+          <div id="taptini">Tap&Tini</div>
           <img
             id="menuItemImage"
             key={menuItem?.imageUrl}
@@ -67,7 +67,10 @@ export default function Menu() {
           <div id="itemDescription" key={menuItem?.description}>
             {menuItem?.description}
           </div>
-          <div id="categories">
+          <div id="price" key={menuItem?.price.toString()}>
+            {menuItem?.price.toString()} SEK
+          </div>
+          {/* <div id="categories">
             Categories:
             <br />
             {menuItem?.categories.map((category) => {
@@ -78,7 +81,7 @@ export default function Menu() {
                 </>
               );
             })}
-          </div>
+          </div> */}
         </div>
         <div className="col" id="extras">
           <TapasExtras />
