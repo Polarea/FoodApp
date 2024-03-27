@@ -1,9 +1,6 @@
 import Menu from "./components/Menu";
 import "./App.css";
-import Cart from "./components/Cart";
 
-function App() {
+export default function App() {
   return <Menu />;
 }
-
-export default App;

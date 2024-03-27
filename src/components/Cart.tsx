@@ -1,16 +1,24 @@
 import { useState } from "react";
 import { Menu } from "./Menu";
 import { Extras } from "./TapasExtras";
-import { Cocktails } from "./Cocktail";
+import { Cocktail } from "./Cocktail";
 
-interface Cart {
+export interface Cart {
   tapas: Menu[];
   extras: Extras[];
-  cocktails: Cocktails;
+  cocktails: Cocktail[];
 }
 
-export default function Cart() {
-  const [cart, setCart] = useState<Cart>();
+let setCart = (value: Cart) => {};
+let cart: Cart | undefined = undefined;
+
+export const CartContext = {
+  cart,
+  setCart,
+};
+
+export function Cart_() {
+  [cart, setCart] = useState<Cart>();
   const [total, setTotal] = useState(0);
 
   return (
@@ -56,7 +64,7 @@ export default function Cart() {
               </tr>
             );
           })}
-          {cart?.cocktails.drinks.map((drink) => {
+          {/* {cart?.cocktails.map((drink) => {
             setTotal(total + drink.price * drink.quantity);
             return (
               <tr>
@@ -69,7 +77,7 @@ export default function Cart() {
                 <td key={drink.idDrink}>{drink.price * drink.quantity}</td>
               </tr>
             );
-          })}
+          })} */}
           <tr>
             <td colSpan={3}>Grand Total</td>
             <td>{total}</td>

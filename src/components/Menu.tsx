@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../App.css";
-import TapasExtras from "./TapasExtras";
+import TapasExtras, { Extras } from "./TapasExtras";
+import { AddToCart } from "./AddToCartButton";
 
 const BASE_URL = "https://iths-2024-recept-grupp7-86oop6.reky.se/recipes";
 
@@ -15,13 +16,14 @@ export interface Menu {
 
 export default function Menu() {
   const [MenuItems, setMenuItems] = useState<Menu[]>([]);
-  const [menuItem, setMenuItem] = useState<Menu>();
+  const [MenuItem, setMenuItem] = useState<Menu[]>([]);
+  const [extras, setExtras] = useState<Extras[]>([]);
 
   const fetchMenu = async () => {
     const response = await fetch(`${BASE_URL}`);
     const menuItems = (await response.json()) as Menu[];
     setMenuItems(menuItems);
-    setMenuItem(menuItems[0]);
+    setMenuItem([menuItems[0]]);
   };
   useEffect(() => {
     fetchMenu();
@@ -34,17 +36,17 @@ export default function Menu() {
           <center>
             <h1 id="headingMenu">Menu</h1>
             <ul id="list">
-              {MenuItems.map((menuItem, index) => {
+              {MenuItems.map((menuItem) => {
                 return (
-                  <li key={index++}>
+                  <li key={menuItem.imageUrl + "1"}>
                     <img
-                      key={menuItem.title + index}
+                      key={menuItem.imageUrl + "2"}
                       src={menuItem.imageUrl}
                       alt={menuItem.title}
                       id="thumbnail"
-                      onMouseOver={() => setMenuItem(menuItem)}
+                      onMouseOver={() => setMenuItem([menuItem])}
                     />
-                    <div key={index} id="thumbnailText">
+                    <div key={menuItem.imageUrl + "3"} id="thumbnailText">
                       {menuItem.title}
                     </div>
                   </li>
@@ -57,18 +59,18 @@ export default function Menu() {
           <div id="taptini">Tap&Tini</div>
           <img
             id="menuItemImage"
-            key={menuItem?.imageUrl}
-            src={menuItem?.imageUrl}
-            alt={menuItem?.title}
+            key={MenuItem[0]?.imageUrl}
+            src={MenuItem[0]?.imageUrl}
+            alt={MenuItem[0]?.title}
           />
-          <div id="descriptionTitle" key={menuItem?.title}>
-            {menuItem?.title}
+          <div id="descriptionTitle" key={MenuItem[0]?.title}>
+            {MenuItem[0]?.title}
           </div>
-          <div id="itemDescription" key={menuItem?.description}>
-            {menuItem?.description}
+          <div id="itemDescription" key={MenuItem[0]?.description}>
+            {MenuItem[0]?.description}
           </div>
-          <div id="price" key={menuItem?.price.toString()}>
-            {menuItem?.price.toString()} SEK
+          <div id="price" key={MenuItem[0]?.price.toString()}>
+            {MenuItem[0]?.price.toString()} SEK
           </div>
           {/* <div id="categories">
             Categories:
@@ -84,7 +86,8 @@ export default function Menu() {
           </div> */}
         </div>
         <div className="col" id="extras">
-          <TapasExtras />
+          <TapasExtras setExtrasValue={setExtras} extrasValue={extras} />
+          <AddToCart tapas={MenuItem} extras={extras} cocktails={[]} />
         </div>
       </div>
     </div>

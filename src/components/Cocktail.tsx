@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "../App.css";
 
-interface Cocktail {
+export interface Cocktail {
   strDrink: string;
   strDrinkThumb: string;
   idDrink: string;
@@ -16,7 +16,7 @@ export interface Cocktails {
 const BASE_URL =
   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail";
 
-export default function Cocktail() {
+export function Cocktail() {
   const [drinks, setDrinks] = useState<Cocktails>();
   const [drink, setDrink] = useState<Cocktail>();
 
